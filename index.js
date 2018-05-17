@@ -4,9 +4,20 @@ const app = {
         this.max = 0
         this.list = document.querySelector(selectors.listSelector)
         this.template = document.querySelector(selectors.templateSelector)
+        //Add new movie/show
         document.querySelector(selectors.formSelector).addEventListener('submit', ev => {
             ev.preventDefault()
             this.handleSubmit(ev)
+        })
+        //Delete
+        document.querySelector(selectors.formSelector).addEventListener('click', ev => {
+            ev.preventDefault()
+            this.handleDelete(ev)
+        })
+        //Favorite
+        document.querySelector(selectors.formSelector).addEventListener('click', ev => {
+            ev.preventDefault()
+            this.handleFavorite(ev)
         })
     },
 
@@ -31,6 +42,15 @@ const app = {
         this.list.insertBefore(item, this.list.firstChild)
     
         f.reset()
+    },
+
+    handleDelete(ev) {
+        const f = ev.target
+        
+    },
+
+    handleFavorite(ev) {
+
     },
 }
 
