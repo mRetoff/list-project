@@ -15,15 +15,18 @@ span#gray {
 
 main {
     width: 80%;
+    background-color: whitesmoke;
     margin: 1rem auto;
 }
 
-img {
+.actions .button {
+    margin-bottom: 0;
+}
+
+.template {
     display: none;
 }
 
-div#list {
-    padding: 1rem;
-    background-color: #f33f3f;
-    display: none;
+.flickName {
+    margin: 0 0.75rem;
 }

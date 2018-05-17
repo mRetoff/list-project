@@ -1,37 +1,41 @@
 const app = {
-    init: function(formSelector) {
+    init(selectors) {
+        this.flicks = []
         this.max = 0
-        document.querySelector(formSelector).addEventListener('submit', (ev) => {
+        this.list = document.querySelector(selectors.listSelector)
+        this.template = document.querySelector(selectors.templateSelector)
+        document.querySelector(selectors.formSelector).addEventListener('submit', ev => {
             ev.preventDefault()
             this.handleSubmit(ev)
         })
     },
 
-    handleSubmit: function(ev) {
-        const temp = ev.target
-        const m = {
-            id: ++this.max,
-            name: temp.movie.value,
-        }
-    
-        this.renderList
-    
-        //if(m.toLowerCase().indexOf('infinity war') >= 0)
-            //document.getElementById('img').style.display = 'block'
-    
-        document.getElementById('list').style.display = 'block'
-        temp.reset()
+    renderListItem(flick) {
+        const item = this.template.cloneNode(true)
+        item.classList.remove('template')
+        item.dataset.id = flick.id
+        item.querySelector('.flickName').textContent = flick.name
+        return item
     },
 
-    renderList: function(data) {
-        const movieList = document.querySelector('#list')
-        const list = document.createElement('ul')
-        const item = document.createElement('li')
-        
-        item.textContent = data
-        list.appendChild(item)
-        movieList.appendChild(list)
+    handleSubmit(ev) {
+        const f = ev.target
+        const flick = {
+            id: ++this.max,
+            name: f.flickName.value,
+        }
+    
+        this.flicks.unshift(flick)
+
+        const item = this.renderListItem(flick)
+        this.list.insertBefore(item, this.list.firstChild)
+    
+        f.reset()
     },
 }
 
-app.init("#input")
+app.init({
+    formSelector: '#flickForm',
+    listSelector: '#flickList',
+    templateSelector: '.flick.template',
+})
