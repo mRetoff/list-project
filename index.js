@@ -1,4 +1,5 @@
 const form = document.querySelector('#input')
+let movies = new Array()
 
 function handleSubmit(ev) {
     ev.preventDefault()
@@ -6,10 +7,12 @@ function handleSubmit(ev) {
     const m = temp.movie.value
 
     renderList(m)
+    movies.push(m)
 
     if(m.toLowerCase().indexOf('infinity war') >= 0)
         document.getElementById('img').style.display = 'block'
 
+    document.getElementById('list').style.display = 'block'
     temp.reset()
 }
 

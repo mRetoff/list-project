@@ -8,9 +8,15 @@ span#gray {
 }
 
 body {
-    background-color: #f05151;
+    background-color: #e6dbdb;
 }
 
 img {
+    display: none;
+}
+
+div#list {
+    padding: 1rem;
+    background-color: #f33f3f;
     display: none;
 }
