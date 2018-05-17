@@ -6,22 +6,42 @@
     <title>Top Marvel Movies/Shows</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js">
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
 </head>
 
 <body>
-    <h1><span id="title">Top Marvel</span><span id="gray"> A Top List of Marvel Movies and Shows</span></h1>
+    <header>
+        <h1>
+            <span id="title">Top Marvel</span>
+            <span id="gray"> A Top List of Marvel Movies and Shows</span>
+        </h1>
+    </header>
+    <main>
+        <form id="input">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    name="movie"
+                    placeholder="Movie/Show"
+                    autofocus 
+                    required
+                >
+                <div class="input-group-button">
+                    <button class="button" type="submit">Add to List</button>
+                </div>
+            </div>
+        </form>
 
-    <form id="input">
-        <input type="text" name="movie" placeholder="Movie Title" autofocus>
-    </form>
-    <button>Submit</button><br><br>
+        <div id="list"></div><br>
 
-    <div id="list"></div><br>
-
-    <img id="img" src="https://i.imgur.com/qy7lHKQ.jpg" 
-        alt="Infinity War Spoilers without Context" width="400" height="400">
-
+        <img 
+            id="img" 
+            src="https://i.imgur.com/qy7lHKQ.jpg" 
+            alt="Infinity War Spoilers without Context" 
+            width="400" 
+            height="400"
+        >
+    </main>
     <script src="index.js"></script>
 </body>
 </html>

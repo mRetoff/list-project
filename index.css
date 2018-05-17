@@ -13,8 +13,9 @@ span#gray {
     font-size: 1rem;
 }
 
-body {
-    background-image: url("")
+main {
+    width: 80%;
+    margin: 1rem auto;
 }
 
 img {

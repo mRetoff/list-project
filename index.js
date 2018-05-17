@@ -1,38 +1,37 @@
-const form = document.querySelector('#input')
-let movies = new Array()
-let deleteB
+const app = {
+    init: function(formSelector) {
+        this.max = 0
+        document.querySelector(formSelector).addEventListener('submit', (ev) => {
+            ev.preventDefault()
+            this.handleSubmit(ev)
+        })
+    },
 
-function handleSubmit(ev) {
-    ev.preventDefault()
-    const temp = ev.target
-    const m = temp.movie.value
+    handleSubmit: function(ev) {
+        const temp = ev.target
+        const m = {
+            id: ++this.max,
+            name: temp.movie.value,
+        }
+    
+        this.renderList
+    
+        //if(m.toLowerCase().indexOf('infinity war') >= 0)
+            //document.getElementById('img').style.display = 'block'
+    
+        document.getElementById('list').style.display = 'block'
+        temp.reset()
+    },
 
-    renderList(m)
-    movies.push(m)
-
-    if(m.toLowerCase().indexOf('infinity war') >= 0)
-        document.getElementById('img').style.display = 'block'
-
-    document.getElementById('list').style.display = 'block'
-    temp.reset()
+    renderList: function(data) {
+        const movieList = document.querySelector('#list')
+        const list = document.createElement('ul')
+        const item = document.createElement('li')
+        
+        item.textContent = data
+        list.appendChild(item)
+        movieList.appendChild(list)
+    },
 }
 
-function renderList(data) {
-    const movieList = document.querySelector('#list')
-    const list = document.createElement('ul')
-    const item = document.createElement('li')
-    deleteB = document.createElement('button')
-
-    deleteB.textContent = 'Delete'
-    item.textContent = data
-    item.appendChild(deleteB)
-    list.appendChild(item)
-    movieList.appendChild(list)
-}
-
-function deleteItem(ev) {
-    ev.preventDefault()
-}
-
-form.addEventListener('submit', handleSubmit)
-deleteB.addEventListener('click', deleteItem)
+app.init("#input")
