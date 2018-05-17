@@ -9,16 +9,6 @@ const app = {
             ev.preventDefault()
             this.handleSubmit(ev)
         })
-        //Delete
-        document.querySelector(selectors.formSelector).addEventListener('click', ev => {
-            ev.preventDefault()
-            this.handleDelete(ev)
-        })
-        //Favorite
-        document.querySelector(selectors.formSelector).addEventListener('click', ev => {
-            ev.preventDefault()
-            this.handleFavorite(ev)
-        })
     },
 
     renderListItem(flick) {
@@ -44,9 +34,9 @@ const app = {
         f.reset()
     },
 
-    handleDelete(ev) {
-        const f = ev.target
-        
+    handleDelete(id) {
+        const flick = document.getElementById(id)
+        this.list.removeChild(flick)
     },
 
     handleFavorite(ev) {
