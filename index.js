@@ -1,5 +1,6 @@
 const form = document.querySelector('#input')
 let movies = new Array()
+let deleteB
 
 function handleSubmit(ev) {
     ev.preventDefault()
@@ -20,10 +21,18 @@ function renderList(data) {
     const movieList = document.querySelector('#list')
     const list = document.createElement('ul')
     const item = document.createElement('li')
+    deleteB = document.createElement('button')
 
+    deleteB.textContent = 'Delete'
     item.textContent = data
+    item.appendChild(deleteB)
     list.appendChild(item)
     movieList.appendChild(list)
 }
 
+function deleteItem(ev) {
+    ev.preventDefault()
+}
+
 form.addEventListener('submit', handleSubmit)
+deleteB.addEventListener('click', deleteItem)
