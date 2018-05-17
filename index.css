@@ -1,3 +1,16 @@
 h1 {
-    color: #cc0000
+    font-family: fantasy;
+}
+
+span#gray {
+    color: #3a3939;
+    font-size: 1rem;
+}
+
+body {
+    background-color: #f05151;
+}
+
+img {
+    display: none;
 }
