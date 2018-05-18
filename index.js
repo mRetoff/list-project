@@ -1,6 +1,3 @@
-const delB = document.querySelector('.warning')
-const favB = document.querySelector('.alert')
-
 const app = {
     init(selectors) {
         this.flicks = []
@@ -11,6 +8,16 @@ const app = {
         document.querySelector(selectors.formSelector).addEventListener('submit', ev => {
             ev.preventDefault()
             this.handleSubmit(ev)
+        })
+        //Delete
+        document.querySelector(selectors.deleteSelector).addEventListener('click', ev => {
+            ev.preventDefault()
+            this.handleDelete(ev)
+        })
+        //Favorite
+        document.querySelector(selectors.favoriteSelector).addEventListener('click', ev => {
+            ev.preventDefault()
+            this.handleFavorite(ev)
         })
     },
 
@@ -37,12 +44,13 @@ const app = {
         f.reset()
     },
 
-    handleDelete() {
-        const flick = document.getElementById(id)
-        this.list.removeChild(flick)
+    handleDelete(ev) {
+        console.log('Delete')
+        //const flick = document.getElementById(id)
+        //this.list.removeChild(flick)
     },
 
-    handleFavorite() {
+    handleFavorite(ev) {
 
     },
 }
@@ -51,7 +59,6 @@ app.init({
     formSelector: '#flickForm',
     listSelector: '#flickList',
     templateSelector: '.flick.template',
+    deleteSelector: "#delete",
+    favoriteSelector: "#favorite",
 })
-
-delB.addEventListener('click', app.handleDelete)
-favB.addEventListener('click', app.handleFavorite)

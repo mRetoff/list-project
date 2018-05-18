@@ -8,12 +8,17 @@ h1 {
 span#title {
     padding: 0 8px 0 8px;
     background-color: red;
-    top: -5px;
 }
 
 span#gray {
-    color: #3a3939;
+    color: red;
     font-size: 1rem;
+    border-bottom-style: solid;
+    border-bottom-color: red;
+    border-top-style: solid;
+    border-top-color: red;
+    padding-bottom: 4px;
+    padding-top: 4px;
 }
 
 main {
