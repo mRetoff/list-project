@@ -1,3 +1,6 @@
+const delB = document.querySelector('.warning')
+const favB = document.querySelector('.alert')
+
 const app = {
     init(selectors) {
         this.flicks = []
@@ -34,12 +37,12 @@ const app = {
         f.reset()
     },
 
-    handleDelete(id) {
+    handleDelete() {
         const flick = document.getElementById(id)
         this.list.removeChild(flick)
     },
 
-    handleFavorite(ev) {
+    handleFavorite() {
 
     },
 }
@@ -49,3 +52,6 @@ app.init({
     listSelector: '#flickList',
     templateSelector: '.flick.template',
 })
+
+delB.addEventListener('click', app.handleDelete)
+favB.addEventListener('click', app.handleFavorite)

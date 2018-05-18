@@ -1,13 +1,14 @@
 h1 {
     font-family: fantasy;
     margin-top: 15px;
-    margin-left: 5px;
+    margin-left: 8px;
+    color: white;
 }
 
 span#title {
-    border-style: solid;
-    border-width: thick;
-    padding: 3px;
+    padding: 0 8px 0 8px;
+    background-color: red;
+    top: -5px;
 }
 
 span#gray {
