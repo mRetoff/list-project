@@ -31,8 +31,8 @@ const app = {
 
         item
             .querySelector('.delete.button')
-            .addEventListener('click', this.handleDelete.bind(this, item))
-            
+            .addEventListener('click', this.handleDelete.bind(this, item, flick))
+
         return item
     },
 
@@ -51,9 +51,11 @@ const app = {
         f.reset()
     },
 
-    handleDelete(item, ev) {
+    handleDelete(item, flick, ev) {
         item.remove()
-        
+
+        const i = this.flicks.indexOf(flick)
+        this.flicks.splice(i, 1)
     },
 
     handleFavorite(ev) {
