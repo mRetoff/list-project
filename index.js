@@ -1,5 +1,5 @@
-const app = {
-    init(selectors) {
+class App {
+    constructor(selectors) {
         this.flicks = []
         this.max = 0
         this.list = document.querySelector(selectors.listSelector)
@@ -9,17 +9,7 @@ const app = {
             ev.preventDefault()
             this.handleSubmit(ev)
         })
-        //Delete
-        document.querySelector(selectors.deleteSelector).addEventListener('click', ev => {
-            ev.preventDefault()
-            this.handleDelete(ev)
-        })
-        //Favorite
-        document.querySelector(selectors.favoriteSelector).addEventListener('click', ev => {
-            ev.preventDefault()
-            this.handleFavorite(ev)
-        })
-    },
+    }
 
     renderListItem(flick) {
         const item = this.template.cloneNode(true)
@@ -33,8 +23,12 @@ const app = {
             .querySelector('.delete.button')
             .addEventListener('click', this.handleDelete.bind(this, item, flick))
 
+        item
+            .querySelector('.favorite.button')
+            .addEventListener('click', this.handleFavorite.bind(this, item))
+
         return item
-    },
+    }
 
     handleSubmit(ev) {
         const f = ev.target
@@ -49,24 +43,18 @@ const app = {
         this.list.insertBefore(item, this.list.firstChild)
     
         f.reset()
-    },
+    }
 
     handleDelete(item, flick, ev) {
         item.remove()
 
         const i = this.flicks.indexOf(flick)
         this.flicks.splice(i, 1)
-    },
+    }
 
     handleFavorite(ev) {
 
-    },
+    }
 }
 
-app.init({
-    formSelector: '#flickForm',
-    listSelector: '#flickList',
-    templateSelector: '.flick.template',
-    deleteSelector: ".delete",
-    favoriteSelector: ".favorite",
-})
+const app = new App()
