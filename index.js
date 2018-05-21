@@ -25,7 +25,14 @@ const app = {
         const item = this.template.cloneNode(true)
         item.classList.remove('template')
         item.dataset.id = flick.id
-        item.querySelector('.flickName').textContent = flick.name
+        item
+            .querySelector('.flickName')
+            .textContent = flick.name
+
+        item
+            .querySelector('.delete.button')
+            .addEventListener('click', this.handleDelete.bind(this, item))
+            
         return item
     },
 
@@ -44,10 +51,9 @@ const app = {
         f.reset()
     },
 
-    handleDelete(ev) {
-        console.log('Delete')
-        //const flick = document.getElementById(id)
-        //this.list.removeChild(flick)
+    handleDelete(item, ev) {
+        item.remove()
+        
     },
 
     handleFavorite(ev) {
@@ -59,6 +65,6 @@ app.init({
     formSelector: '#flickForm',
     listSelector: '#flickList',
     templateSelector: '.flick.template',
-    deleteSelector: "#delete",
-    favoriteSelector: "#favorite",
+    deleteSelector: ".delete",
+    favoriteSelector: ".favorite",
 })
